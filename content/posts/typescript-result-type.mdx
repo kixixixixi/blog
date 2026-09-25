@@ -1,0 +1,61 @@
+例外は型に現れない。失敗しうる関数の戻り値を `Result` で表すと、呼び出し側に処理を強制できる。
+
+## 定義
+
+```typescript
+type Result<T, E = Error> = { ok: true; value: T } | { ok: false; error: E }
+
+const ok = <T>(value: T): Result<T, never> => ({ ok: true, value })
+const err = <E>(error: E): Result<never, E> => ({ ok: false, error })
+```
+
+## 使う
+
+```typescript
+function parseAge(input: string): Result<number, string> {
+  const n = Number(input)
+  if (!Number.isInteger(n) || n < 0) return err(`不正な年齢: ${input}`)
+  return ok(n)
+}
+
+const result = parseAge("42")
+if (result.ok) {
+  console.log(result.value + 1) // number として扱える
+} else {
+  console.error(result.error)
+}
+```
+
+## 長い行
+
+横スクロールの確認用。
+
+```typescript
+const veryLongLine = [
+  "alpha",
+  "beta",
+  "gamma",
+  "delta",
+  "epsilon",
+  "zeta",
+  "eta",
+  "theta",
+  "iota",
+  "kappa",
+  "lambda",
+  "mu",
+]
+  .map((s) => s.toUpperCase())
+  .join(", ")
+```
+
+シェルも:
+
+```bash
+pnpm validate && pnpm build
+```
+
+<Note type="warning">
+  `try/catch` を完全に置き換えるものではない。境界で例外を `Result`
+  に変換する使い方が現実的。
+</Note>

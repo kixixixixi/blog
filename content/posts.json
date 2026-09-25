@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "slug": "example-book-review",
+    "title": "『達人プログラマー』を読んだ",
+    "description": "『達人プログラマー』を読み返した感想。",
+    "date": "2026-09-01",
+    "tags": ["読書", "感想文"],
+    "category": "book",
+    "path": "posts/example-book-review.mdx",
+    "published": true
+  },
+  {
+    "id": 2,
+    "slug": "typescript-result-type",
+    "title": "TypeScriptでResult型を書く",
+    "description": "例外を投げずに失敗を表現するための小さなResult型。",
+    "date": "2026-09-10",
+    "updated": "2026-09-12",
+    "tags": ["programming", "TypeScript"],
+    "category": "tech",
+    "path": "posts/typescript-result-type.mdx",
+    "published": true
+  },
+  {
+    "id": 3,
+    "slug": "basel-problem",
+    "title": "バーゼル問題のメモ",
+    "description": "1/n² の和が π²/6 になる話。",
+    "date": "2026-09-15",
+    "tags": ["数学"],
+    "category": "note",
+    "path": "posts/basel-problem.mdx",
+    "published": true
+  },
+  {
+    "id": 4,
+    "slug": "embeds-sample",
+    "title": "外部コンテンツ埋め込みのテスト",
+    "description": "YouTube、GitHub、X、Webページの埋め込み例。",
+    "date": "2026-09-20",
+    "tags": ["meta"],
+    "category": "note",
+    "path": "posts/embeds-sample.mdx",
+    "published": true
+  },
+  {
+    "id": 5,
+    "slug": "images-sample",
+    "title": "画像を含む記事のテスト",
+    "description": "Markdown画像とFigureコンポーネントの表示確認。",
+    "date": "2026-09-25",
+    "tags": ["meta"],
+    "category": "note",
+    "path": "posts/images-sample.mdx",
+    "image": "/images/sample.svg",
+    "published": true
+  }
+]
