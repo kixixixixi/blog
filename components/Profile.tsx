@@ -16,7 +16,7 @@ export const Profile: FC = () => (
     />
     <p className="profile-name">
       <span>{site.title}</span>
-      <span className="profile-handle">{site.author}</span>
+      <span className="profile-handle">@{site.author}</span>
     </p>
     <p className="profile-bio">{site.description}</p>
     <ul className="profile-links">

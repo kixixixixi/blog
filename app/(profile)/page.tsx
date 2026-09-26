@@ -10,9 +10,7 @@ const Page = () => {
   return (
     <>
       <section className="readme">
-        <h1 className="readme-path">
-          kixixixixi / <strong>README</strong>.md
-        </h1>
+        <h1 className="readme-path">~/notes</h1>
         <p>
           技術、歴史、考えたこと。
           <br />

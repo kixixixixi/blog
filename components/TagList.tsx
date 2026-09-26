@@ -2,18 +2,18 @@ import Link from "next/link"
 import { FC } from "react"
 import { getTags } from "@/lib/posts.ts"
 
-// GitHub linguist-style colours.
+// Muted hues at similar lightness, so no tag shouts over the others.
 const palette = [
-  "#3178c6",
-  "#f1e05a",
-  "#e34c26",
-  "#89e051",
-  "#b07219",
-  "#00add8",
-  "#f34b7d",
-  "#8b7cff",
-  "#dea584",
-  "#4f5d95",
+  "#9d8cff",
+  "#6cc4b8",
+  "#e0b86a",
+  "#e58a9b",
+  "#7fb0e8",
+  "#a8c97f",
+  "#d49a6a",
+  "#c98fd6",
+  "#8fa3b8",
+  "#e6d28a",
 ]
 
 /** Colour by alphabetical position, so current tags never share a colour. */
