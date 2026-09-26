@@ -1,4 +1,5 @@
 export const site = {
+  title: "槿花一朝の夢のまた夢",
   name: "kixixixixi log",
   url: "https://blog.kixixixixi.com",
   description: "読んだもの、書いたコード、考えたことのログ。",

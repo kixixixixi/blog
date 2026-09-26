@@ -33,7 +33,7 @@ export const generateMetadata = async ({
     alternates: { canonical: postPath(post.slug) },
     openGraph: {
       type: "article",
-      siteName: site.name,
+      siteName: `${site.title} (${site.name})`,
       locale: "ja_JP",
       title: post.title,
       description: post.description,
@@ -59,7 +59,7 @@ const Page = async ({ params }: Props) => {
   const { newer, older } = getAdjacentPosts(post.slug)
   const url = absoluteUrl(postPath(post.slug))
   const share = new URLSearchParams({
-    text: `${post.title} | ${site.name}`,
+    text: `${post.title} | ${site.title} (${site.name})`,
     url,
   })
 

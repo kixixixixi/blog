@@ -21,7 +21,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
       </a>
       <header className="site-header">
         <Link href="/" className="site-title">
-          {site.name}
+          {site.title}
         </Link>
         <nav aria-label="サイト">
           <Link href="/archive/">アーカイブ</Link>
