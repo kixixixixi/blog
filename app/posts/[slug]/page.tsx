@@ -12,7 +12,7 @@ import {
   getPosts,
   getPostSource,
 } from "@/lib/posts.ts"
-import { absoluteUrl, site } from "@/lib/site.ts"
+import { absoluteUrl, formatDate, site } from "@/lib/site.ts"
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -92,20 +92,30 @@ const Page = async ({ params }: Props) => {
         }}
       />
       <header className="post-header">
+        {post.tags.length > 0 && (
+          <p className="breadcrumb">
+            {post.tags.map((t, i) => (
+              <span key={t}>
+                {i > 0 && " / "}
+                <Link href={`/tags/${encodeURIComponent(t)}/`}>{t}</Link>
+              </span>
+            ))}
+          </p>
+        )}
         <h1>
           {!post.published && "[下書き] "}
           {post.title}
         </h1>
         <p className="post-meta">
-          <time dateTime={post.date}>{post.date}</time>
+          <time dateTime={post.date}>{formatDate(post.date)}</time>
           {post.updated && post.updated !== post.date && (
             <>
               {" "}
-              (更新: <time dateTime={post.updated}>{post.updated}</time>)
+              · updated{" "}
+              <time dateTime={post.updated}>{formatDate(post.updated)}</time>
             </>
           )}
         </p>
-        <TagList tags={post.tags} />
       </header>
 
       <div className="prose">
@@ -113,6 +123,7 @@ const Page = async ({ params }: Props) => {
       </div>
 
       <footer className="post-footer">
+        <TagList tags={post.tags} />
         <p className="share">
           共有:{" "}
           <a
@@ -137,12 +148,14 @@ const Page = async ({ params }: Props) => {
         <nav className="adjacent" aria-label="前後の記事">
           {older && (
             <Link href={postPath(older.slug)} rel="prev">
-              ← {older.title}
+              <span>← Previous</span>
+              {older.title}
             </Link>
           )}
           {newer && (
             <Link href={postPath(newer.slug)} rel="next">
-              {newer.title} →
+              <span>Next →</span>
+              {newer.title}
             </Link>
           )}
         </nav>

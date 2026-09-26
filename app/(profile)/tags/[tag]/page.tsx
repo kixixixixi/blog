@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { PostList } from "@/components/PostCard"
+import { TagDot } from "@/components/TagList"
 import { getPostsByTag, getTags } from "@/lib/posts.ts"
 
 type Props = { params: Promise<{ tag: string }> }
@@ -29,7 +30,10 @@ const Page = async ({ params }: Props) => {
   if (posts.length === 0) notFound()
   return (
     <>
-      <h1>#{tag}</h1>
+      <h1 className="page-title">
+        <TagDot tag={tag} />
+        {tag}
+      </h1>
       <PostList posts={posts} />
     </>
   )

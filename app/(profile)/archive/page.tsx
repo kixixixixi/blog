@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import Link from "next/link"
+import { PostList } from "@/components/PostCard"
 import { getArchive } from "@/lib/posts.ts"
 
 export const metadata: Metadata = {
@@ -9,18 +9,13 @@ export const metadata: Metadata = {
 
 const Page = () => (
   <>
-    <h1>アーカイブ</h1>
+    <h1 className="page-title">Notes</h1>
     {getArchive().map(({ month, posts }) => (
       <section key={month} aria-labelledby={month}>
-        <h2 id={month}>{month}</h2>
-        <ul className="archive-list">
-          {posts.map((p) => (
-            <li key={p.slug}>
-              <time dateTime={p.date}>{p.date}</time>{" "}
-              <Link href={`/posts/${p.slug}/`}>{p.title}</Link>
-            </li>
-          ))}
-        </ul>
+        <h2 id={month} className="month">
+          {month}
+        </h2>
+        <PostList posts={posts} />
       </section>
     ))}
   </>

@@ -7,6 +7,7 @@ export const dynamic = "force-static"
 const sitemap = (): MetadataRoute.Sitemap => [
   { url: absoluteUrl("/") },
   { url: absoluteUrl("/archive/") },
+  { url: absoluteUrl("/about/") },
   { url: absoluteUrl("/tags/") },
   ...getPosts().map((p) => ({
     url: absoluteUrl(`/posts/${p.slug}/`),

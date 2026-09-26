@@ -11,7 +11,7 @@ const Page = () => {
   const tags = getTags()
   return (
     <>
-      <h1>タグ</h1>
+      <h1 className="page-title">Topics</h1>
       <TagList
         tags={tags.map((t) => t.tag)}
         counts={new Map(tags.map((t) => [t.tag, t.count]))}
