@@ -373,3 +373,39 @@ pre .line::before {
     scroll-behavior: auto !important;
   }
 }
+
+/* dev-only editor (components/PostEditor.tsx), docked right */
+.post-editor {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: 45vw;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  background: var(--bg);
+  border-left: 1px solid var(--border);
+  z-index: 10;
+}
+.post-editor textarea {
+  flex: 1;
+  font: 0.9rem/1.6 ui-monospace, monospace;
+  resize: none;
+}
+.post-editor p {
+  margin: 0.5rem 0 0;
+  max-height: 30vh;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+body:has(.post-editor) {
+  margin-right: 45vw;
+}
+.new-post {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 24rem;
+}
+.new-post label {
+  display: grid;
+  gap: 0.25rem;
+}

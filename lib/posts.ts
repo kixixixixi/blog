@@ -4,6 +4,9 @@ import { z } from "zod"
 
 const CONTENT_DIR = path.join(process.cwd(), "content")
 
+/** `next dev`: re-read content on every request and show drafts. */
+const isDev = process.env.NODE_ENV === "development"
+
 const PostSchema = z.strictObject({
   id: z.int().positive(),
   slug: z
@@ -78,14 +81,15 @@ export const loadPosts = (): Post[] => {
       cause: e,
     })
   }
-  cache = parsePosts(raw, readBody)
-  return cache
+  const posts = parsePosts(raw, readBody)
+  if (!isDev) cache = posts
+  return posts
 }
 
-/** Published posts, newest first. */
+/** Published posts (plus drafts in dev), newest first. */
 export const getPosts = (): Post[] =>
   loadPosts()
-    .filter((p) => p.published)
+    .filter((p) => p.published || isDev)
     .sort((a, b) => b.date.localeCompare(a.date) || b.id - a.id)
 
 export const getPost = (slug: string) => getPosts().find((p) => p.slug === slug)

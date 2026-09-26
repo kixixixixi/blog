@@ -34,6 +34,8 @@ pnpm test
 
    必須: `id` `slug` `title` `date` `path` `published` / 任意: `description` `updated` `tags` `category` `image`
 
+   `pnpm dev` 中は下書き（`published: false`）も表示され、MDX / posts.json の保存が約1秒でブラウザに反映される。記事ページ右側のエディタでも本文を編集できる（⌘S / Ctrl+S で保存。MDX エラー時は保存されずエラー表示）。ヘッダーの「新規作成」（`/new/`）で slug・タイトルを入れると mdx と posts.json エントリ（下書き）を作成してエディタへ移動。
+
 3. `pnpm build` → `main` に push すると GitHub Actions が GitHub Pages へデプロイ
 
 ## MDX で使えるもの

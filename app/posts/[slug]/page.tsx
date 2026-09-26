@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { mdxComponents } from "@/components/mdx"
+import { PostEditor } from "@/components/PostEditor"
 import { TagList } from "@/components/TagList"
 import { renderMdx } from "@/lib/mdx.ts"
 import {
@@ -55,7 +56,8 @@ export const generateMetadata = async ({
 const Page = async ({ params }: Props) => {
   const post = getPost((await params).slug)
   if (!post) notFound()
-  const Content = await renderMdx(getPostSource(post))
+  const source = getPostSource(post)
+  const Content = await renderMdx(source)
   const { newer, older } = getAdjacentPosts(post.slug)
   const url = absoluteUrl(postPath(post.slug))
   const share = new URLSearchParams({
@@ -79,6 +81,9 @@ const Page = async ({ params }: Props) => {
 
   return (
     <article className="post">
+      {process.env.NODE_ENV === "development" && (
+        <PostEditor slug={post.slug} source={source} />
+      )}
       <script
         type="application/ld+json"
         // "<" escaped so post text can't close the script tag
@@ -87,7 +92,10 @@ const Page = async ({ params }: Props) => {
         }}
       />
       <header className="post-header">
-        <h1>{post.title}</h1>
+        <h1>
+          {!post.published && "[下書き] "}
+          {post.title}
+        </h1>
         <p className="post-meta">
           <time dateTime={post.date}>{post.date}</time>
           {post.updated && post.updated !== post.date && (

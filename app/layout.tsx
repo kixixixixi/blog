@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ReactNode } from "react"
+import { DevRefresh } from "@/components/DevRefresh"
 import { site } from "@/lib/site.ts"
 import "./globals.css"
 
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: ReactNode }) => (
   <html lang={site.lang}>
     <body>
+      {process.env.NODE_ENV === "development" && <DevRefresh />}
       <a className="skip-link" href="#main">
         本文へスキップ
       </a>
@@ -27,6 +29,9 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
           <Link href="/archive/">アーカイブ</Link>
           <Link href="/tags/">タグ</Link>
           <a href="/rss.xml">RSS</a>
+          {process.env.NODE_ENV === "development" && (
+            <Link href="/new/">新規作成</Link>
+          )}
         </nav>
       </header>
       <main id="main">{children}</main>
