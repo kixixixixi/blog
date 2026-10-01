@@ -53,7 +53,6 @@ export const PostEditor = ({
         .split(",")
         .map((t) => t.trim())
         .filter(Boolean),
-      category: s("category"),
       image: s("image"),
       published: f.has("published"),
     }
@@ -101,10 +100,6 @@ export const PostEditor = ({
           <label>
             タグ (カンマ区切り)
             <input name="tags" defaultValue={post.tags.join(", ")} />
-          </label>
-          <label>
-            category
-            <input name="category" defaultValue={post.category} />
           </label>
           <label>
             image

@@ -17,7 +17,6 @@ const PostSchema = z.strictObject({
   date: z.iso.date(),
   updated: z.iso.date().optional(),
   tags: z.array(z.string().min(1)).default([]),
-  category: z.string().optional(),
   path: z.string().regex(/^posts\/[^/]+\.mdx$/, "path は posts/*.mdx"),
   image: z.string().optional(),
   published: z.boolean(),

@@ -6,7 +6,6 @@
     "description": "ブログをはじめた理由を書きました。",
     "date": "2026-10-02",
     "tags": ["myself"],
-    "category": "myself",
     "path": "posts/introduction-myself.mdx",
     "published": true
   }
