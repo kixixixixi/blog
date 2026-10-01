@@ -1,8 +1,7 @@
 // Dev-only (see pageExtensions in next.config.js): create a draft post.
 import fs from "node:fs"
 import path from "node:path"
-import { format } from "prettier"
-import { isSameOrigin } from "@/lib/dev.ts"
+import { isSameOrigin, savePosts } from "@/lib/dev.ts"
 import { loadPosts, parsePosts } from "@/lib/posts.ts"
 
 const CONTENT_DIR = path.join(process.cwd(), "content")
@@ -39,10 +38,6 @@ export const POST = async (req: Request) => {
   }
 
   fs.writeFileSync(file, "")
-  const json = JSON.stringify([...posts, post])
-  fs.writeFileSync(
-    path.join(CONTENT_DIR, "posts.json"),
-    await format(json, { parser: "json" })
-  )
+  await savePosts([...posts, post])
   return Response.redirect(new URL(`/posts/${slug}/`, req.url), 303)
 }

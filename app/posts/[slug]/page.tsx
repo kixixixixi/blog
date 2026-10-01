@@ -82,7 +82,7 @@ const Page = async ({ params }: Props) => {
   return (
     <article className="post">
       {process.env.NODE_ENV === "development" && (
-        <PostEditor slug={post.slug} source={source} />
+        <PostEditor post={post} source={source} />
       )}
       <script
         type="application/ld+json"
