@@ -78,44 +78,41 @@ export const PostEditor = ({
 
   return (
     <aside className="post-editor" aria-label="記事エディタ">
-      <details>
-        <summary>メタ情報</summary>
-        <form className="post-meta-form" onSubmit={saveMeta}>
-          <label>
-            タイトル
-            <input name="title" required defaultValue={post.title} />
-          </label>
-          <label>
-            説明
-            <input name="description" defaultValue={post.description} />
-          </label>
-          <label>
-            date
-            <input name="date" type="date" required defaultValue={post.date} />
-          </label>
-          <label>
-            updated
-            <input name="updated" type="date" defaultValue={post.updated} />
-          </label>
-          <label>
-            タグ (カンマ区切り)
-            <input name="tags" defaultValue={post.tags.join(", ")} />
-          </label>
-          <label>
-            image
-            <input name="image" defaultValue={post.image} />
-          </label>
-          <label>
-            <input
-              name="published"
-              type="checkbox"
-              defaultChecked={post.published}
-            />
-            published
-          </label>
-          <button type="submit">保存</button>
-        </form>
-      </details>
+      <form className="post-meta-form" onSubmit={saveMeta}>
+        <label>
+          タイトル
+          <input name="title" required defaultValue={post.title} />
+        </label>
+        <label>
+          説明
+          <input name="description" defaultValue={post.description} />
+        </label>
+        <label>
+          date
+          <input name="date" type="date" required defaultValue={post.date} />
+        </label>
+        <label>
+          updated
+          <input name="updated" type="date" defaultValue={post.updated} />
+        </label>
+        <label>
+          タグ (カンマ区切り)
+          <input name="tags" defaultValue={post.tags.join(", ")} />
+        </label>
+        <label>
+          image
+          <input name="image" defaultValue={post.image} />
+        </label>
+        <label>
+          <input
+            name="published"
+            type="checkbox"
+            defaultChecked={post.published}
+          />
+          published
+        </label>
+        <button type="submit">保存</button>
+      </form>
       <textarea
         aria-label="本文 (MDX)"
         value={text}

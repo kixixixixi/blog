@@ -984,3 +984,40 @@ body:has(.post-editor) {
   display: flex;
   align-items: center;
 }
+:where(.post-editor, .new-post) :where(input:not([type="checkbox"]), textarea) {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font: inherit;
+  color-scheme: dark;
+}
+:is(.post-editor, .new-post) :is(input, textarea):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+  border-color: transparent;
+}
+:is(.post-editor, .new-post) input[type="checkbox"] {
+  accent-color: var(--accent);
+}
+:is(.post-editor, .new-post) button {
+  padding: 0.4rem 1rem;
+  color: var(--text);
+  background: var(--surface-hover);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  font: inherit;
+  cursor: pointer;
+}
+:is(.post-editor, .new-post) button:hover {
+  border-color: var(--accent);
+}
+.post-meta-form label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.post-meta-form button {
+  justify-self: end;
+}
