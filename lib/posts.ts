@@ -51,7 +51,8 @@ export const parsePosts = (
     const body = readBody(post.path)
     if (body === null)
       errors.push(`${at} MDXファイルが存在しない: content/${post.path}`)
-    else if (post.published && body.trim() === "")
+    // dev: editing in real time can leave the body empty for a moment
+    else if (post.published && !isDev && body.trim() === "")
       errors.push(`${at} 公開記事なのに本文が空`)
   }
   if (errors.length)
