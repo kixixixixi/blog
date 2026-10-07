@@ -8,5 +8,14 @@
     "tags": ["myself"],
     "path": "posts/introduction-myself.mdx",
     "published": true
+  },
+  {
+    "id": 2,
+    "slug": "2026-10-now",
+    "title": "2026年10月の現在地",
+    "date": "2026-10-08",
+    "tags": ["myself"],
+    "path": "posts/2026-10-now.mdx",
+    "published": true
   }
 ]
