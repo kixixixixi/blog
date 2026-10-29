@@ -18,5 +18,14 @@
     "tags": ["myself"],
     "path": "posts/2026-10-now.mdx",
     "published": true
+  },
+  {
+    "id": 3,
+    "slug": "2026-goal",
+    "title": "2026年、今の目標",
+    "date": "2026-10-30",
+    "tags": ["myself"],
+    "path": "posts/2026-goal.mdx",
+    "published": true
   }
 ]
