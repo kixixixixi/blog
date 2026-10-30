@@ -27,7 +27,6 @@ export const generateMetadata = async ({
 }: Props): Promise<Metadata> => {
   const post = getPost((await params).slug)
   if (!post) return {}
-  const images = post.image ? [post.image] : undefined
   return {
     title: post.title,
     description: post.description,
@@ -42,13 +41,12 @@ export const generateMetadata = async ({
       publishedTime: post.date,
       modifiedTime: post.updated ?? post.date,
       tags: post.tags,
-      images,
+      images: `${postPath(post.slug)}og.png`,
     },
     twitter: {
-      card: images ? "summary_large_image" : "summary",
+      card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images,
     },
   }
 }

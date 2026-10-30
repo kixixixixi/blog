@@ -19,8 +19,13 @@ export const metadata: Metadata = {
   title: { default: site.name, template: `%s | ${site.name}` },
   description: site.description,
   alternates: { canonical: "/", types: { "application/rss+xml": "/rss.xml" } },
-  openGraph: { siteName: site.name, locale: "ja_JP", type: "website" },
-  twitter: { card: "summary" },
+  openGraph: {
+    siteName: site.name,
+    locale: "ja_JP",
+    type: "website",
+    images: "/og.png",
+  },
+  twitter: { card: "summary_large_image" },
 }
 
 export const viewport: Viewport = { themeColor: "#0B0D10", colorScheme: "dark" }
