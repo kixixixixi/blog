@@ -639,13 +639,6 @@ main {
 .prose h3 {
   margin-top: 2.2em;
 }
-.prose h3::before {
-  content: "### ";
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-weight: 400;
-  opacity: 0.5;
-}
 .prose p,
 .prose ul,
 .prose ol {
