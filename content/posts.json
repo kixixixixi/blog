@@ -29,5 +29,14 @@
     "tags": ["myself"],
     "path": "posts/2026-goal.mdx",
     "published": true
+  },
+  {
+    "id": 4,
+    "slug": "electric-circuit-1",
+    "title": "例題と演習で学ぶ電気回路 #1",
+    "date": "2026-11-12",
+    "tags": [],
+    "path": "posts/electric-circuit-1.mdx",
+    "published": true
   }
 ]
