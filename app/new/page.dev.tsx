@@ -24,8 +24,8 @@ const NewPost = async ({ searchParams }: Props) => {
         <button type="submit">作成</button>
       </form>
       <p>
-        date は今日、published は false で posts.json に追加。公開時は
-        published を true に。
+        date は今日、published は false で posts.json に追加。公開時は published
+        を true に。
       </p>
     </>
   )
