@@ -1,16 +1,29 @@
 import { ImageResponse } from "next/og"
 import { site } from "@/lib/site.ts"
 
+/** fetch with retries: CI runners occasionally time out on Google Fonts. */
+const fetchRetry = async (url: string, tries = 3): Promise<Response> => {
+  try {
+    const res = await fetch(url)
+    if (!res.ok) throw new Error(`${res.status} ${url}`)
+    return res
+  } catch (e) {
+    if (tries <= 1) throw e
+    await new Promise((r) => setTimeout(r, 2000))
+    return fetchRetry(url, tries - 1)
+  }
+}
+
 /** Noto Sans JP subset containing only `text` (satori needs ttf/otf). */
 const loadFont = async (text: string) => {
-  const css = await fetch(
+  const css = await fetchRetry(
     `https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&text=${encodeURIComponent(text)}`
   ).then((res) => res.text())
   const url = css.match(
     /src: url\((.+?)\) format\('(?:opentype|truetype)'\)/
   )?.[1]
   if (!url) throw new Error("Noto Sans JP の取得に失敗")
-  return fetch(url).then((res) => res.arrayBuffer())
+  return fetchRetry(url).then((res) => res.arrayBuffer())
 }
 
 /** 1200x630 OGP image: big `title`, footer `sub` + accent-coloured `accent`. */
