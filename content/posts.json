@@ -47,5 +47,14 @@
     "tags": ["study"],
     "path": "posts/electric-circuit-2.mdx",
     "published": false
+  },
+  {
+    "id": 6,
+    "slug": "study-review",
+    "title": "「勉強会のための勉強会」に寄せて",
+    "date": "2026-11-18",
+    "tags": [],
+    "path": "posts/study-review.mdx",
+    "published": true
   }
 ]
