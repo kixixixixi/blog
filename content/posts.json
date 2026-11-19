@@ -44,9 +44,10 @@
     "slug": "electric-circuit-2",
     "title": "例題と演習で学ぶ電気回路 #2",
     "date": "2026-11-15",
+    "updated": "2026-11-19",
     "tags": ["study"],
     "path": "posts/electric-circuit-2.mdx",
-    "published": false
+    "published": true
   },
   {
     "id": 6,
