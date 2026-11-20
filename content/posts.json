@@ -57,5 +57,14 @@
     "tags": ["myself"],
     "path": "posts/study-review.mdx",
     "published": true
+  },
+  {
+    "id": 7,
+    "slug": "electric-circuit-3",
+    "title": "例題と演習で学ぶ電気回路 #3",
+    "date": "2026-11-19",
+    "tags": ["study"],
+    "path": "posts/electric-circuit-3.mdx",
+    "published": true
   }
 ]
