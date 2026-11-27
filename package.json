@@ -12,7 +12,7 @@
     "test": "vitest run",
     "test:watch": "vitest"
   },
-  "packageManager": "pnpm@12.21.0",
+  "packageManager": "pnpm@12.23.0",
   "dependencies": {
     "@mdx-js/mdx": "^3.1.1",
     "@shikijs/rehype": "^4.6.0",
@@ -30,22 +30,22 @@
     "@eslint/compat": "^2.1.1",
     "@eslint/js": "^10.0.1",
     "@testing-library/dom": "^10.4.2",
-    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/jest-dom": "^8.0.0",
     "@testing-library/react": "^16.3.3",
-    "@types/node": "^26.6.6",
-    "@types/react": "^19.3.0",
+    "@types/node": "^26.6.11",
+    "@types/react": "^19.3.3",
     "@typescript/native": "npm:typescript@^7.0.2",
     "@vitejs/plugin-react": "^6.3.0",
     "eslint": "^10.15.0",
-    "eslint-config-prettier": "^10.1.8",
+    "eslint-config-prettier": "^10.1.9",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
     "jsdom": "^31.0.1",
     "prettier": "^3.10.1",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
-    "typescript-eslint": "^8.72.2",
-    "vitest": "^5.1.0"
+    "typescript-eslint": "^8.74.0",
+    "vitest": "^5.1.2"
   },
   "private": true
 }
